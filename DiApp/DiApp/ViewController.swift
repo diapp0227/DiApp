@@ -13,10 +13,25 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func tapTimeCalcAction(_ sender: Any) {
-        Logger.log("tapTimeCalcAction")
+        presentTimeCalcViewController()
+    }
+        
+}
+
+private extension ViewController {
+
+    var timeCalcViewController: TimeCalcViewController? {
+        UIStoryboard(name: "TimeCalc", bundle: nil).instantiateInitialViewController() as? TimeCalcViewController
+    }
+    
+    func presentTimeCalcViewController() {
+        guard let timeCalcViewController = timeCalcViewController else {
+            return
+        }
+        
+        present(timeCalcViewController, animated: true)
     }
     
 }
-
