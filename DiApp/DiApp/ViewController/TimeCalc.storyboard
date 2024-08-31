@@ -15,10 +15,25 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tx8-5w-FuU">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="tx8-5w-FuU" secondAttribute="bottom" id="Y2K-fJ-Rno"/>
+                            <constraint firstItem="tx8-5w-FuU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="byd-gd-Q1Z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tx8-5w-FuU" secondAttribute="trailing" id="clj-Xx-DOR"/>
+                            <constraint firstItem="tx8-5w-FuU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ht7-5b-YMG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZzR-5l-yiR"/>
+                    <connections>
+                        <outlet property="tableView" destination="tx8-5w-FuU" id="xg5-h8-7d8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
