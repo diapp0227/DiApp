@@ -17,6 +17,8 @@
 		B955AB3F2C82FE6E003F1383 /* DiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB3E2C82FE6E003F1383 /* DiAppUITests.swift */; };
 		B955AB412C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB402C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift */; };
 		B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B483C42C831C7B004E9FE8 /* Logger.swift */; };
+		B9B483C92C8323A5004E9FE8 /* TimeCalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B483C82C8323A5004E9FE8 /* TimeCalcViewController.swift */; };
+		B9B483CB2C8324CE004E9FE8 /* TimeCalc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B483CA2C8324CE004E9FE8 /* TimeCalc.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		B955AB3E2C82FE6E003F1383 /* DiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiAppUITests.swift; sourceTree = "<group>"; };
 		B955AB402C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B9B483C42C831C7B004E9FE8 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		B9B483C82C8323A5004E9FE8 /* TimeCalcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcViewController.swift; sourceTree = "<group>"; };
+		B9B483CA2C8324CE004E9FE8 /* TimeCalc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeCalc.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		B955AB1C2C82FE6D003F1383 /* DiApp */ = {
 			isa = PBXGroup;
 			children = (
+				B9B483C72C8322C7004E9FE8 /* ViewController */,
 				B9B483C32C831898004E9FE8 /* Utils */,
 				B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */,
 				B955AB1F2C82FE6D003F1383 /* SceneDelegate.swift */,
@@ -136,6 +141,15 @@
 				B9B483C42C831C7B004E9FE8 /* Logger.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B9B483C72C8322C7004E9FE8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B9B483C82C8323A5004E9FE8 /* TimeCalcViewController.swift */,
+				B9B483CA2C8324CE004E9FE8 /* TimeCalc.storyboard */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B483CB2C8324CE004E9FE8 /* TimeCalc.storyboard in Resources */,
 				B955AB272C82FE6D003F1383 /* Assets.xcassets in Resources */,
 				B955AB2A2C82FE6D003F1383 /* Base in Resources */,
 				B955AB252C82FE6D003F1383 /* Base in Resources */,
@@ -273,6 +288,7 @@
 				B955AB1E2C82FE6D003F1383 /* AppDelegate.swift in Sources */,
 				B955AB202C82FE6D003F1383 /* SceneDelegate.swift in Sources */,
 				B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */,
+				B9B483C92C8323A5004E9FE8 /* TimeCalcViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
