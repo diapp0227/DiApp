@@ -14,9 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        print("[Print] application didFinishLaunchingWithOptions")
-        debugPrint("[DebugPrint] application didFinishLaunchingWithOptions")
-        NSLog("[NSLog] application didFinishLaunchingWithOptions")
+        Logger.log("application didFinishLaunchingWithOptions")
         
         return true
     }
