@@ -12,18 +12,21 @@ class TimeCalcViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupNavigationBar()
+    }
+}
+
+private extension TimeCalcViewController {
+    
+    func setupNavigationBar() {
+        navigationItem.title = "時間計算"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close,
+                                                            target: self,
+                                                            action: #selector(tapNavigationClose))
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func tapNavigationClose(_ sender : Any) {
+        dismiss(animated: true)
     }
-    */
-
 }

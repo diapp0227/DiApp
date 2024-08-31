@@ -22,8 +22,8 @@ class ViewController: UIViewController {
 
 private extension ViewController {
 
-    var timeCalcViewController: TimeCalcViewController? {
-        UIStoryboard(name: "TimeCalc", bundle: nil).instantiateInitialViewController() as? TimeCalcViewController
+    var timeCalcViewController: UINavigationController? {
+        UIStoryboard(name: "TimeCalc", bundle: nil).instantiateInitialViewController()
     }
     
     func presentTimeCalcViewController() {
