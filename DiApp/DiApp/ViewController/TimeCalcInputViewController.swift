@@ -17,6 +17,7 @@ class TimeCalcInputViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
+        setupNavigationBar()
     }
 }
 
@@ -29,6 +30,34 @@ private extension TimeCalcInputViewController {
         // dataSource・delegateを紐付け
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    /// ナビゲーションバーの設定
+    func setupNavigationBar() {
+        navigationItem.title = "時間入力"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
+                                                            target: self,
+                                                            action: #selector(tapNavigationEdit))
+    }
+    
+    @objc func tapNavigationEdit(_ sender : Any) {
+        present(saveConfirmAlert, animated: true)
+    }
+    
+    /// ナビゲーションバー右上のボタン押下時に表示するダイアログ
+    var saveConfirmAlert: UIAlertController {
+        let alert = UIAlertController(title: "情報を保存しますか？",
+                                      message: "",
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        })
+        
+        alert.addAction(UIAlertAction(title: "No", style: .destructive) { _ in
+            Logger.log("No")
+        })
+        return alert
     }
     
     /// 各Cellの設定
