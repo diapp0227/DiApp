@@ -21,6 +21,11 @@
 		B9B483CB2C8324CE004E9FE8 /* TimeCalc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B483CA2C8324CE004E9FE8 /* TimeCalc.storyboard */; };
 		B9FB3FE22C837DAE005188CA /* TimeCalcAddElementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB3FE02C837DAE005188CA /* TimeCalcAddElementsCell.swift */; };
 		B9FB3FE32C837DAE005188CA /* TimeCalcAddElementsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9FB3FE12C837DAE005188CA /* TimeCalcAddElementsCell.xib */; };
+		B9FB3FE52C838C43005188CA /* TimeCalcInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9FB3FE42C838C43005188CA /* TimeCalcInput.storyboard */; };
+		B9FB3FE72C838CBA005188CA /* TimeCalcInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB3FE62C838CBA005188CA /* TimeCalcInputViewController.swift */; };
+		B9FB3FEA2C840C60005188CA /* TimeCalcInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB3FE82C840C60005188CA /* TimeCalcInputCell.swift */; };
+		B9FB3FEB2C840C60005188CA /* TimeCalcInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9FB3FE92C840C60005188CA /* TimeCalcInputCell.xib */; };
+		B9FB3FEE2C8418F4005188CA /* TimeCalcInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB3FED2C8418F4005188CA /* TimeCalcInputViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		B9B483CA2C8324CE004E9FE8 /* TimeCalc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeCalc.storyboard; sourceTree = "<group>"; };
 		B9FB3FE02C837DAE005188CA /* TimeCalcAddElementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcAddElementsCell.swift; sourceTree = "<group>"; };
 		B9FB3FE12C837DAE005188CA /* TimeCalcAddElementsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCalcAddElementsCell.xib; sourceTree = "<group>"; };
+		B9FB3FE42C838C43005188CA /* TimeCalcInput.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeCalcInput.storyboard; sourceTree = "<group>"; };
+		B9FB3FE62C838CBA005188CA /* TimeCalcInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcInputViewController.swift; sourceTree = "<group>"; };
+		B9FB3FE82C840C60005188CA /* TimeCalcInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcInputCell.swift; sourceTree = "<group>"; };
+		B9FB3FE92C840C60005188CA /* TimeCalcInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCalcInputCell.xib; sourceTree = "<group>"; };
+		B9FB3FED2C8418F4005188CA /* TimeCalcInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcInputViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				B9FB3FDC2C837CA6005188CA /* Views */,
+				B9FB3FEC2C8418C5005188CA /* ViewModel */,
 				B9B483C72C8322C7004E9FE8 /* ViewController */,
 				B9B483C32C831898004E9FE8 /* Utils */,
 				B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */,
@@ -153,6 +164,8 @@
 			children = (
 				B9B483C82C8323A5004E9FE8 /* TimeCalcViewController.swift */,
 				B9B483CA2C8324CE004E9FE8 /* TimeCalc.storyboard */,
+				B9FB3FE62C838CBA005188CA /* TimeCalcInputViewController.swift */,
+				B9FB3FE42C838C43005188CA /* TimeCalcInput.storyboard */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -170,8 +183,18 @@
 			children = (
 				B9FB3FE02C837DAE005188CA /* TimeCalcAddElementsCell.swift */,
 				B9FB3FE12C837DAE005188CA /* TimeCalcAddElementsCell.xib */,
+				B9FB3FE82C840C60005188CA /* TimeCalcInputCell.swift */,
+				B9FB3FE92C840C60005188CA /* TimeCalcInputCell.xib */,
 			);
 			path = TimeCalc;
+			sourceTree = "<group>";
+		};
+		B9FB3FEC2C8418C5005188CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B9FB3FED2C8418F4005188CA /* TimeCalcInputViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9B483CB2C8324CE004E9FE8 /* TimeCalc.storyboard in Resources */,
+				B9FB3FEB2C840C60005188CA /* TimeCalcInputCell.xib in Resources */,
 				B9FB3FE32C837DAE005188CA /* TimeCalcAddElementsCell.xib in Resources */,
 				B955AB272C82FE6D003F1383 /* Assets.xcassets in Resources */,
+				B9FB3FE52C838C43005188CA /* TimeCalcInput.storyboard in Resources */,
 				B955AB2A2C82FE6D003F1383 /* Base in Resources */,
 				B955AB252C82FE6D003F1383 /* Base in Resources */,
 			);
@@ -311,7 +336,10 @@
 				B955AB1E2C82FE6D003F1383 /* AppDelegate.swift in Sources */,
 				B9FB3FE22C837DAE005188CA /* TimeCalcAddElementsCell.swift in Sources */,
 				B955AB202C82FE6D003F1383 /* SceneDelegate.swift in Sources */,
+				B9FB3FEA2C840C60005188CA /* TimeCalcInputCell.swift in Sources */,
 				B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */,
+				B9FB3FE72C838CBA005188CA /* TimeCalcInputViewController.swift in Sources */,
+				B9FB3FEE2C8418F4005188CA /* TimeCalcInputViewModel.swift in Sources */,
 				B9B483C92C8323A5004E9FE8 /* TimeCalcViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

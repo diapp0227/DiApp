@@ -57,4 +57,13 @@ extension TimeCalcViewController: UITableViewDataSource {
     }
 }
 
-extension TimeCalcViewController: UITableViewDelegate { }
+extension TimeCalcViewController: UITableViewDelegate {
+    
+    /// Cellタップ時の処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = UIStoryboard(name: "TimeCalcInput", bundle: nil).instantiateInitialViewController() else {
+            return
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
