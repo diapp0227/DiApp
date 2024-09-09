@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B917B5612C8F4C1500193955 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B917B55F2C8F4C1400193955 /* CoreDataModel.xcdatamodeld */; };
+		B917B5642C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5622C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift */; };
+		B917B5652C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5632C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift */; };
+		B917B5672C8F509300193955 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5662C8F509300193955 /* CoreDataRepository.swift */; };
 		B955AB1E2C82FE6D003F1383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */; };
 		B955AB202C82FE6D003F1383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB1F2C82FE6D003F1383 /* SceneDelegate.swift */; };
 		B955AB222C82FE6D003F1383 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB212C82FE6D003F1383 /* ViewController.swift */; };
@@ -46,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B917B5602C8F4C1400193955 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B917B5622C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeCalcEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B917B5632C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeCalcEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B917B5662C8F509300193955 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		B955AB1A2C82FE6D003F1383 /* DiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B955AB1F2C82FE6D003F1383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +107,9 @@
 		B955AB112C82FE6D003F1383 = {
 			isa = PBXGroup;
 			children = (
+				B917B5622C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift */,
+				B917B5632C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift */,
+				B917B55F2C8F4C1400193955 /* CoreDataModel.xcdatamodeld */,
 				B955AB1C2C82FE6D003F1383 /* DiApp */,
 				B955AB332C82FE6E003F1383 /* DiAppTests */,
 				B955AB3D2C82FE6E003F1383 /* DiAppUITests */,
@@ -155,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				B9B483C42C831C7B004E9FE8 /* Logger.swift */,
+				B917B5662C8F509300193955 /* CoreDataRepository.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -336,7 +348,11 @@
 				B955AB1E2C82FE6D003F1383 /* AppDelegate.swift in Sources */,
 				B9FB3FE22C837DAE005188CA /* TimeCalcAddElementsCell.swift in Sources */,
 				B955AB202C82FE6D003F1383 /* SceneDelegate.swift in Sources */,
+				B917B5612C8F4C1500193955 /* CoreDataModel.xcdatamodeld in Sources */,
 				B9FB3FEA2C840C60005188CA /* TimeCalcInputCell.swift in Sources */,
+				B917B5642C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift in Sources */,
+				B917B5652C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift in Sources */,
+				B917B5672C8F509300193955 /* CoreDataRepository.swift in Sources */,
 				B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */,
 				B9FB3FE72C838CBA005188CA /* TimeCalcInputViewController.swift in Sources */,
 				B9FB3FEE2C8418F4005188CA /* TimeCalcInputViewModel.swift in Sources */,
@@ -681,6 +697,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B917B55F2C8F4C1400193955 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B917B5602C8F4C1400193955 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = B917B5602C8F4C1400193955 /* CoreDataModel.xcdatamodel */;
+			name = CoreDataModel.xcdatamodeld;
+			path = /Users/garigari0118/Desktop/work/Swift/DiApp/DiApp/CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B955AB122C82FE6D003F1383 /* Project object */;
 }

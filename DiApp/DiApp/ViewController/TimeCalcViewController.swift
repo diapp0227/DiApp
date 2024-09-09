@@ -17,6 +17,16 @@ class TimeCalcViewController: UIViewController {
         setupTableView()
         setupNavigationBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Logger.log("CoreDataRepository.shared.getTimeCalcEntity().count = \(CoreDataRepository.shared.getTimeCalcEntity().count)")
+        
+        CoreDataRepository.shared.getTimeCalcEntity().forEach { info in
+            Logger.log("info = \(info)")
+        }
+    }
 }
 
 private extension TimeCalcViewController {

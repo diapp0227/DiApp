@@ -51,11 +51,13 @@ private extension TimeCalcInputViewController {
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
+            self?.addTimeCalcEntity()
             self?.navigationController?.popViewController(animated: true)
+            Logger.log("saveConfirmAlert Yes")
         })
         
         alert.addAction(UIAlertAction(title: "No", style: .destructive) { _ in
-            Logger.log("No")
+            Logger.log("saveConfirmAlert No")
         })
         return alert
     }
@@ -85,4 +87,25 @@ extension TimeCalcInputViewController: UITableViewDataSource {
     }
 }
 
-extension TimeCalcInputViewController: UITableViewDelegate { }
+extension TimeCalcInputViewController: UITableViewDelegate { 
+    
+    func addTimeCalcEntity() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let newEntity = TimeCalcEntity(context: appDelegate.persistentContainer.viewContext)
+        
+        newEntity.date = getSectionInfo(type: .date) as? Date
+        newEntity.work = getSectionInfo(type: .work) as? Date
+        newEntity.leaving = getSectionInfo(type: .leaving) as? Date
+        
+        CoreDataRepository.shared.addTimeCalcEntity(info: newEntity)
+    }
+    
+    func getSectionInfo(type: TimeCalcInputViewModel.Section) -> Any? {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: type.rawValue)) as? TimeCalcInputCell else {
+            return nil
+        }
+        return cell.datePicker.date
+    }
+}
