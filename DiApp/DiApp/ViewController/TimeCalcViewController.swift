@@ -9,6 +9,7 @@ import UIKit
 
 class TimeCalcViewController: UIViewController {
 
+    let viewModel = TimeCalcViewModel()
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -20,6 +21,8 @@ class TimeCalcViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.updateEntityData()
+        tableView.reloadData()
         
         Logger.log("CoreDataRepository.shared.getTimeCalcEntity().count = \(CoreDataRepository.shared.getTimeCalcEntity().count)")
         
@@ -34,8 +37,10 @@ private extension TimeCalcViewController {
     /// Tableviewの設定
     func setupTableView() {
         // Cellの登録
-        tableView.register(UINib(nibName: "TimeCalcAddElementsCell", bundle: nil),
-                           forCellReuseIdentifier: "TimeCalcAddElementsCell")
+        TimeCalcViewModel.Section.allCases.forEach {
+            tableView.register(UINib(nibName: $0.identifierName, bundle: nil),
+                               forCellReuseIdentifier: $0.identifierName)
+        }
         // dataSource・delegateを紐付け
         tableView.dataSource = self
         tableView.delegate = self
@@ -52,18 +57,44 @@ private extension TimeCalcViewController {
     @objc func tapNavigationClose(_ sender : Any) {
         dismiss(animated: true)
     }
+    
+    func setupCell(indexPath: IndexPath, cell: UITableViewCell) -> UITableViewCell {
+        switch viewModel.section[indexPath.section] {
+        case .entity:
+            return setupEntityCell(indexPath: indexPath, cell: cell)
+        case .addButton:
+            return cell
+        }
+    }
+    
+    func setupEntityCell(indexPath: IndexPath, cell: UITableViewCell) -> UITableViewCell {
+        guard let entityCell = cell as? TimeCalcTableViewCell else {
+            return cell
+        }
+        entityCell.setup(entity: viewModel.getTimeCalcEntity(number: indexPath.row))
+        return entityCell
+    }
+    
 }
 
 extension TimeCalcViewController: UITableViewDataSource {
-    
+
     /// Sectionの個数
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel.section.count
+    }
+
+    /// 各Sectionの要素数(行数)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        viewModel.section[section].numberOfRows
     }
     
     /// 利用するCellの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.dequeueReusableCell(withIdentifier: "TimeCalcAddElementsCell", for: indexPath)
+        let cell = setupCell(indexPath: indexPath,
+                             cell: tableView.dequeueReusableCell(withIdentifier: viewModel.section[indexPath.section].identifierName,
+                                                                 for: indexPath))
+        return cell
     }
 }
 

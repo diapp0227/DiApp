@@ -30,7 +30,7 @@ class CoreDataRepository: NSObject {
         }
     }
     
-    /// 日付情報の削除
+    /// 日付情報の取得
     func getTimeCalcEntity() -> [TimeCalcEntity] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return []

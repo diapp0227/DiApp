@@ -11,6 +11,10 @@
 		B917B5642C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5622C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift */; };
 		B917B5652C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5632C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift */; };
 		B917B5672C8F509300193955 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5662C8F509300193955 /* CoreDataRepository.swift */; };
+		B917B56A2CA43B0C00193955 /* TimeCalcTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B917B5692CA43B0C00193955 /* TimeCalcTableViewCell.xib */; };
+		B917B56B2CA43B0C00193955 /* TimeCalcTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5682CA43B0C00193955 /* TimeCalcTableViewCell.swift */; };
+		B917B56D2CA43F6000193955 /* TimeCalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B56C2CA43F6000193955 /* TimeCalcViewModel.swift */; };
+		B917B56F2CA44FE700193955 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B56E2CA44FE700193955 /* DateExtension.swift */; };
 		B955AB1E2C82FE6D003F1383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */; };
 		B955AB202C82FE6D003F1383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB1F2C82FE6D003F1383 /* SceneDelegate.swift */; };
 		B955AB222C82FE6D003F1383 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB212C82FE6D003F1383 /* ViewController.swift */; };
@@ -54,6 +58,10 @@
 		B917B5622C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeCalcEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B917B5632C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeCalcEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B917B5662C8F509300193955 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		B917B5682CA43B0C00193955 /* TimeCalcTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcTableViewCell.swift; sourceTree = "<group>"; };
+		B917B5692CA43B0C00193955 /* TimeCalcTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCalcTableViewCell.xib; sourceTree = "<group>"; };
+		B917B56C2CA43F6000193955 /* TimeCalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcViewModel.swift; sourceTree = "<group>"; };
+		B917B56E2CA44FE700193955 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		B955AB1A2C82FE6D003F1383 /* DiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B955AB1F2C82FE6D003F1383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 			children = (
 				B9B483C42C831C7B004E9FE8 /* Logger.swift */,
 				B917B5662C8F509300193955 /* CoreDataRepository.swift */,
+				B917B56E2CA44FE700193955 /* DateExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -197,6 +206,8 @@
 				B9FB3FE12C837DAE005188CA /* TimeCalcAddElementsCell.xib */,
 				B9FB3FE82C840C60005188CA /* TimeCalcInputCell.swift */,
 				B9FB3FE92C840C60005188CA /* TimeCalcInputCell.xib */,
+				B917B5682CA43B0C00193955 /* TimeCalcTableViewCell.swift */,
+				B917B5692CA43B0C00193955 /* TimeCalcTableViewCell.xib */,
 			);
 			path = TimeCalc;
 			sourceTree = "<group>";
@@ -204,6 +215,7 @@
 		B9FB3FEC2C8418C5005188CA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B917B56C2CA43F6000193955 /* TimeCalcViewModel.swift */,
 				B9FB3FED2C8418F4005188CA /* TimeCalcInputViewModel.swift */,
 			);
 			path = ViewModel;
@@ -320,6 +332,7 @@
 				B9FB3FE52C838C43005188CA /* TimeCalcInput.storyboard in Resources */,
 				B955AB2A2C82FE6D003F1383 /* Base in Resources */,
 				B955AB252C82FE6D003F1383 /* Base in Resources */,
+				B917B56A2CA43B0C00193955 /* TimeCalcTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,12 +358,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B955AB222C82FE6D003F1383 /* ViewController.swift in Sources */,
+				B917B56D2CA43F6000193955 /* TimeCalcViewModel.swift in Sources */,
 				B955AB1E2C82FE6D003F1383 /* AppDelegate.swift in Sources */,
 				B9FB3FE22C837DAE005188CA /* TimeCalcAddElementsCell.swift in Sources */,
 				B955AB202C82FE6D003F1383 /* SceneDelegate.swift in Sources */,
 				B917B5612C8F4C1500193955 /* CoreDataModel.xcdatamodeld in Sources */,
+				B917B56B2CA43B0C00193955 /* TimeCalcTableViewCell.swift in Sources */,
 				B9FB3FEA2C840C60005188CA /* TimeCalcInputCell.swift in Sources */,
 				B917B5642C8F501100193955 /* TimeCalcEntity+CoreDataClass.swift in Sources */,
+				B917B56F2CA44FE700193955 /* DateExtension.swift in Sources */,
 				B917B5652C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift in Sources */,
 				B917B5672C8F509300193955 /* CoreDataRepository.swift in Sources */,
 				B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */,

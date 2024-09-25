@@ -103,7 +103,7 @@ extension TimeCalcInputViewController: UITableViewDelegate {
     }
     
     func getSectionInfo(type: TimeCalcInputViewModel.Section) -> Any? {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: type.rawValue)) as? TimeCalcInputCell else {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? TimeCalcInputCell else {
             return nil
         }
         return cell.datePicker.date
