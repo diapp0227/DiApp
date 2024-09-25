@@ -10,7 +10,7 @@ import UIKit
 class TimeCalcInputViewModel: NSObject {
     
     /// tableView内に表示する内容
-    enum Section: CaseIterable {
+    enum Section: Int, CaseIterable {
         /// 日付
         case date
         /// 出社時間
