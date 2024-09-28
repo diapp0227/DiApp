@@ -21,16 +21,11 @@ class ViewController: UIViewController {
 }
 
 private extension ViewController {
-
-    var timeCalcViewController: UINavigationController? {
-        UIStoryboard(name: "TimeCalc", bundle: nil).instantiateInitialViewController()
-    }
     
     func presentTimeCalcViewController() {
-        guard let timeCalcViewController = timeCalcViewController else {
+        guard let timeCalcViewController = TimeCalcViewController.initialNavigationController() else {
             return
         }
-        
         present(timeCalcViewController, animated: true)
     }
     

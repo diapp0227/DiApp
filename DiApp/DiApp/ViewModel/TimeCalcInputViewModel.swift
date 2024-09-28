@@ -41,8 +41,20 @@ class TimeCalcInputViewModel: NSObject {
         }
     }
     
+    enum InputType {
+        /// 追加情報
+        case add
+        /// 編集
+        case edit
+    }
+    
     /// tableView内に表示する内容
     private(set) var sections = [Section]()
+    /// ユーザー編集前の表示情報
+    private(set)var editBeforeEntity: TimeCalcEntity?
+    /// 入力形式
+    private(set)var inputType: InputType = .add
+ 
     
     override init() {
         super.init()
@@ -54,6 +66,31 @@ class TimeCalcInputViewModel: NSObject {
     func setupSections() {
         Section.allCases.forEach {
             sections.append($0)
+        }
+    }
+    
+    /// 画面遷移初回に設定する想定
+    func initialDisplayEntity(entity: TimeCalcEntity?) {
+        guard let entity else {
+            inputType = .add
+            return
+        }
+        setEditBeforeEntity(entity: entity)
+        inputType = .edit
+    }
+    
+    private func setEditBeforeEntity(entity: TimeCalcEntity) {
+        self.editBeforeEntity = entity
+    }
+    
+    func getFirstDisplayEntityDate(section: Section) -> Date? {
+        switch section {
+        case .date:
+            return editBeforeEntity?.date
+        case .work:
+            return editBeforeEntity?.work
+        case .leaving:
+            return editBeforeEntity?.leaving
         }
     }
 }

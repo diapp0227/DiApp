@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimeCalcInputViewController: UIViewController {
+class TimeCalcInputViewController: DiAppViewController {
 
     private let viewModel = TimeCalcInputViewModel()
     
@@ -18,6 +18,10 @@ class TimeCalcInputViewController: UIViewController {
         
         setupTableView()
         setupNavigationBar()
+    }
+    
+    func setupInfo(entity: TimeCalcEntity?) {
+        viewModel.initialDisplayEntity(entity: entity)
     }
 }
 
@@ -51,7 +55,7 @@ private extension TimeCalcInputViewController {
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
-            self?.addTimeCalcEntity()
+            self?.saveTimeCalcEntity()
             self?.navigationController?.popViewController(animated: true)
             Logger.log("saveConfirmAlert Yes")
         })
@@ -67,7 +71,35 @@ private extension TimeCalcInputViewController {
         guard let cell = cell as? TimeCalcInputCell else {
             return
         }
-        cell.setContents(title: section.title, mode: section.pickerMode)
+        cell.setContents(title: section.title,
+                         mode: section.pickerMode,
+                         date: viewModel.getFirstDisplayEntityDate(section: section))
+    }
+    
+    func saveTimeCalcEntity() {
+        switch viewModel.inputType {
+        case .add:
+            addTimeCalcEntity()
+        case .edit:
+            updateTimeCalcEntity()
+        }
+    }
+    
+    func addTimeCalcEntity() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let newEntity = TimeCalcEntity(context: appDelegate.persistentContainer.viewContext)
+        
+        newEntity.date = getSectionInfo(type: .date) as? Date
+        newEntity.work = getSectionInfo(type: .work) as? Date
+        newEntity.leaving = getSectionInfo(type: .leaving) as? Date
+        
+        CoreDataRepository.shared.addTimeCalcEntity(info: newEntity)
+    }
+    
+    func updateTimeCalcEntity() {
+        
     }
     
 }
@@ -88,20 +120,7 @@ extension TimeCalcInputViewController: UITableViewDataSource {
 }
 
 extension TimeCalcInputViewController: UITableViewDelegate { 
-    
-    func addTimeCalcEntity() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let newEntity = TimeCalcEntity(context: appDelegate.persistentContainer.viewContext)
         
-        newEntity.date = getSectionInfo(type: .date) as? Date
-        newEntity.work = getSectionInfo(type: .work) as? Date
-        newEntity.leaving = getSectionInfo(type: .leaving) as? Date
-        
-        CoreDataRepository.shared.addTimeCalcEntity(info: newEntity)
-    }
-    
     func getSectionInfo(type: TimeCalcInputViewModel.Section) -> Any? {
         guard let cell = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? TimeCalcInputCell else {
             return nil

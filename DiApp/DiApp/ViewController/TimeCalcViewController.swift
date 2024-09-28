@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimeCalcViewController: UIViewController {
+class TimeCalcViewController: DiAppViewController {
 
     let viewModel = TimeCalcViewModel()
     @IBOutlet weak var tableView: UITableView!
@@ -102,9 +102,11 @@ extension TimeCalcViewController: UITableViewDelegate {
     
     /// Cellタップ時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = UIStoryboard(name: "TimeCalcInput", bundle: nil).instantiateInitialViewController() else {
+        guard let vc = TimeCalcInputViewController.initialNavigationController(),
+              let inputViewController = vc as? TimeCalcInputViewController else {
             return
         }
-        navigationController?.pushViewController(vc, animated: true)
+        inputViewController.setupInfo(entity: viewModel.getTimeCalcEntity(number: indexPath.row))
+        navigationController?.pushViewController(inputViewController, animated: true)
     }
 }

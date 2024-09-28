@@ -20,8 +20,12 @@ class TimeCalcInputCell: UITableViewCell {
     /// - Parameters:
     ///   - title: タイトル文言
     ///   - mode: Pickerの表示形式を指定
-    func setContents(title: String, mode: UIDatePicker.Mode = .time) {
+    ///   - date: 初期表示の日付 (設定しない場合は現在日時)
+    func setContents(title: String,
+                     mode: UIDatePicker.Mode = .time,
+                     date: Date? = nil) {
         titleLabel.text = title
         datePicker.datePickerMode = mode
+        datePicker.date = date ?? Date()
     }
 }
