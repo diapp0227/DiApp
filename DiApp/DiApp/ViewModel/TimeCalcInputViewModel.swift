@@ -17,7 +17,43 @@ class TimeCalcInputViewModel: NSObject {
         case work
         /// 退社時間
         case leaving
+        /// 設定タイプ
+        case infoType
+        /// メモ
+        case memo
+        /// 備考
+        case remarks
 
+        /// tableview.dequeueReusableCellで設定するクラス名
+        var identifierName: String {
+            switch self {
+            case .date,
+                 .work,
+                 .leaving:
+                return "TimeCalcInputCell"
+            case .infoType:
+                return "WritingTableViewCell"
+            case .memo,
+                 .remarks:
+                return "WritingTableViewCell"
+            }
+        }
+        
+        /// tableviewのheightで設定するクラス名
+        var cellForHeight: CGFloat {
+            switch self {
+            case .date,
+                 .work,
+                 .leaving:
+                return 60
+            case .infoType:
+                return 100
+            case .memo,
+                 .remarks:
+                return 100
+            }
+        }
+        
         /// 表示タイトル
         var title: String {
             switch self {
@@ -27,6 +63,12 @@ class TimeCalcInputViewModel: NSObject {
                 return "出社時間"
             case .leaving:
                 return "退社時間"
+            case .infoType:
+                return ""
+            case .memo:
+                return "メモ"
+            case .remarks:
+                return "備考"
             }
         }
         
@@ -37,6 +79,10 @@ class TimeCalcInputViewModel: NSObject {
                 return .date
             case .work, .leaving:
                 return .time
+            case .infoType,
+                 .memo,
+                 .remarks:
+                return .date
             }
         }
     }
@@ -91,6 +137,10 @@ class TimeCalcInputViewModel: NSObject {
             return editBeforeEntity?.work
         case .leaving:
             return editBeforeEntity?.leaving
+        case .infoType,
+             .memo,
+             .remarks:
+            return nil
         }
     }
 }
