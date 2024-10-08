@@ -8,13 +8,13 @@
 import UIKit
 
 class TimeCalcViewController: DiAppViewController {
-
+    
     let viewModel = TimeCalcViewModel()
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTableView()
         setupNavigationBar()
     }
@@ -78,17 +78,21 @@ private extension TimeCalcViewController {
 }
 
 extension TimeCalcViewController: UITableViewDataSource {
-
+    
     /// Sectionの個数
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.section.count
     }
-
+    
     /// 各Sectionの要素数(行数)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.section[section].numberOfRows
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
+
     /// 利用するCellの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = setupCell(indexPath: indexPath,
@@ -106,7 +110,14 @@ extension TimeCalcViewController: UITableViewDelegate {
               let inputViewController = vc as? TimeCalcInputViewController else {
             return
         }
-        inputViewController.setupInfo(entity: viewModel.getTimeCalcEntity(number: indexPath.row))
+        // 初期表示の情報を判別
+        switch viewModel.section[indexPath.section] {
+        case .entity:
+            inputViewController.setupInfo(entity: viewModel.getTimeCalcEntity(number: indexPath.row))
+        case .addButton:
+            break
+        }
+        
         navigationController?.pushViewController(inputViewController, animated: true)
     }
 }

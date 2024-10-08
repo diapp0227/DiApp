@@ -12,6 +12,7 @@ class TimeCalcTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var workLabel: UILabel!
     @IBOutlet weak var leavingLabel: UILabel!
+    @IBOutlet weak var diffDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

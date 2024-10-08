@@ -90,18 +90,24 @@ private extension TimeCalcInputViewController {
             return
         }
         let newEntity = TimeCalcEntity(context: appDelegate.persistentContainer.viewContext)
-        
-        newEntity.date = getSectionInfo(type: .date) as? Date
-        newEntity.work = getSectionInfo(type: .work) as? Date
-        newEntity.leaving = getSectionInfo(type: .leaving) as? Date
-        
-        CoreDataRepository.shared.addTimeCalcEntity(info: newEntity)
+        processNewEntity(newEntity: newEntity)
+        CoreDataRepository.shared.saveTimeCalcEntity()
     }
     
     func updateTimeCalcEntity() {
-        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+              let beforeEntity = viewModel.editBeforeEntity else {
+            return
+        }
+        processNewEntity(newEntity: beforeEntity)
+        CoreDataRepository.shared.saveTimeCalcEntity()
     }
     
+    func processNewEntity(newEntity: TimeCalcEntity) {
+        newEntity.date = getSectionInfo(type: .date) as? Date
+        newEntity.work = getSectionInfo(type: .work) as? Date
+        newEntity.leaving = getSectionInfo(type: .leaving) as? Date
+    }
 }
 
 extension TimeCalcInputViewController: UITableViewDataSource {
