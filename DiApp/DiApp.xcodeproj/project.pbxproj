@@ -18,6 +18,7 @@
 		B917B57A2CA7D65400193955 /* DiAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5792CA7D65400193955 /* DiAppViewController.swift */; };
 		B917B5802CB542E400193955 /* WritingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B917B57F2CB542E400193955 /* WritingTableViewCell.xib */; };
 		B917B5812CB542E400193955 /* WritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B57E2CB542E400193955 /* WritingTableViewCell.swift */; };
+		B917B5832CBD8BD300193955 /* InfomationPropertyUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B917B5822CBD8BD300193955 /* InfomationPropertyUtil.swift */; };
 		B955AB1E2C82FE6D003F1383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */; };
 		B955AB202C82FE6D003F1383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB1F2C82FE6D003F1383 /* SceneDelegate.swift */; };
 		B955AB222C82FE6D003F1383 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB212C82FE6D003F1383 /* ViewController.swift */; };
@@ -69,6 +70,7 @@
 		B917B57D2CA80F1D00193955 /* CoreDataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		B917B57E2CB542E400193955 /* WritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingTableViewCell.swift; sourceTree = "<group>"; };
 		B917B57F2CB542E400193955 /* WritingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WritingTableViewCell.xib; sourceTree = "<group>"; };
+		B917B5822CBD8BD300193955 /* InfomationPropertyUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfomationPropertyUtil.swift; sourceTree = "<group>"; };
 		B955AB1A2C82FE6D003F1383 /* DiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B955AB1F2C82FE6D003F1383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				B9B483C42C831C7B004E9FE8 /* Logger.swift */,
 				B917B5662C8F509300193955 /* CoreDataRepository.swift */,
+				B917B5822CBD8BD300193955 /* InfomationPropertyUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				B917B5652C8F501100193955 /* TimeCalcEntity+CoreDataProperties.swift in Sources */,
 				B917B5672C8F509300193955 /* CoreDataRepository.swift in Sources */,
 				B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */,
+				B917B5832CBD8BD300193955 /* InfomationPropertyUtil.swift in Sources */,
 				B9FB3FE72C838CBA005188CA /* TimeCalcInputViewController.swift in Sources */,
 				B9FB3FEE2C8418F4005188CA /* TimeCalcInputViewModel.swift in Sources */,
 				B9B483C92C8323A5004E9FE8 /* TimeCalcViewController.swift in Sources */,
