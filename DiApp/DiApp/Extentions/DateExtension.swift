@@ -24,8 +24,13 @@ extension Date {
     
     /// 時間差分をTimeIntervalで返却する
     /// - Parameter target: 比較するDate
-    /// - Returns: 差分を返却する (値は反転させる)
+    /// - Returns: 休憩時間込みの差分時間を返却する (値は反転させる)
     func getDiffMinute(to target: Date) -> TimeInterval? {
-        self.timeIntervalSince(target) * -1
+        let diff = self.timeIntervalSince(target)
+        guard let breakTimeString = InfomationPropertyUtil.getInfoPlistValue(key: .breakTime) as? String,
+              let breakTime = Double(breakTimeString) else {
+            return nil
+        }
+        return (diff + TimeInterval(breakTime * 60)) * -1
     }
 }
