@@ -10,8 +10,8 @@ import UIKit
 class TimeCalcTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var workLabel: UILabel!
     @IBOutlet weak var leavingLabel: UILabel!
+    @IBOutlet weak var workLabel: UILabel!
     @IBOutlet weak var diffDate: UILabel!
     
     override func awakeFromNib() {
@@ -23,8 +23,9 @@ class TimeCalcTableViewCell: UITableViewCell {
             return
         }
         dateLabel.text = entity.date?.toString(formatType: .monthAndDay)
-        workLabel.text = entity.work?.toString(formatType: .hhmm)
         leavingLabel.text = entity.leaving?.toString(formatType: .hhmm)
+        workLabel.text = entity.work?.toString(formatType: .hhmm)
+        diffDate.text = entity.getDiffDate()
     }
     
 }

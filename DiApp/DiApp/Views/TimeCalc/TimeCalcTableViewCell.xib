@@ -25,20 +25,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmm-9h-1x3">
-                        <rect key="frame" x="106" y="50" width="106" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="106" id="FD3-TF-LOp"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3Z-Vl-OX9">
                         <rect key="frame" x="106" y="0.0" width="106" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="ByB-ew-qSA"/>
                             <constraint firstAttribute="width" constant="106" id="YLg-TG-1g7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmm-9h-1x3">
+                        <rect key="frame" x="106" y="50" width="106" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="106" id="FD3-TF-LOp"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -74,8 +74,8 @@
             <connections>
                 <outlet property="dateLabel" destination="OFj-74-V7i" id="bPG-uf-vlD"/>
                 <outlet property="diffDate" destination="vgu-GP-6St" id="TAg-qP-pxZ"/>
-                <outlet property="leavingLabel" destination="T3Z-Vl-OX9" id="gxT-gi-lNe"/>
-                <outlet property="workLabel" destination="pmm-9h-1x3" id="HaI-OK-VH5"/>
+                <outlet property="leavingLabel" destination="pmm-9h-1x3" id="HaI-OK-VH5"/>
+                <outlet property="workLabel" destination="T3Z-Vl-OX9" id="gxT-gi-lNe"/>
             </connections>
             <point key="canvasLocation" x="116.03053435114504" y="0.0"/>
         </tableViewCell>

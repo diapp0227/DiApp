@@ -21,4 +21,11 @@ extension Date {
         formatter.dateFormat = formatType.rawValue
         return formatter.string(from: self)
     }
+    
+    /// 時間差分をTimeIntervalで返却する
+    /// - Parameter target: 比較するDate
+    /// - Returns: 差分を返却する (値は反転させる)
+    func getDiffMinute(to target: Date) -> TimeInterval? {
+        self.timeIntervalSince(target) * -1
+    }
 }
