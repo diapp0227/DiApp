@@ -7,16 +7,10 @@
 
 import UIKit
 
-protocol WritingTableViewCellDelegate: AnyObject {
-    var inputText: String? { get }
-}
-
 class WritingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
-    
-    weak var delegate: WritingTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

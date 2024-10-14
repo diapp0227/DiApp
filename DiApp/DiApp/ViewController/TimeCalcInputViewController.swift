@@ -139,6 +139,7 @@ private extension TimeCalcInputViewController {
         newEntity.date = getSectionInfo(type: .date) as? Date
         newEntity.work = getSectionInfo(type: .work) as? Date
         newEntity.leaving = getSectionInfo(type: .leaving) as? Date
+        newEntity.memo = getSectionInfo(type: .memo) as? String
     }
 }
 
@@ -164,9 +165,14 @@ extension TimeCalcInputViewController: UITableViewDataSource {
 extension TimeCalcInputViewController: UITableViewDelegate { 
         
     func getSectionInfo(type: TimeCalcInputViewModel.Section) -> Any? {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? TimeCalcInputCell else {
-            return nil
+        if let cell = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? TimeCalcInputCell {
+            return cell.datePicker.date
         }
-        return cell.datePicker.date
+        
+        if let cell = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? WritingTableViewCell {
+            return cell.textField.text
+        }
+        
+        return nil
     }
 }
