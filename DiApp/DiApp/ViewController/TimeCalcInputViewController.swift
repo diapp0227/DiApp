@@ -18,6 +18,7 @@ class TimeCalcInputViewController: DiAppViewController {
         
         setupTableView()
         setupNavigationBar()
+        setupTextField()
     }
     
     func setupInfo(entity: TimeCalcEntity?) {
@@ -44,6 +45,11 @@ private extension TimeCalcInputViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
                                                             target: self,
                                                             action: #selector(tapNavigationEdit))
+    }
+    
+    /// テキストフィールドの設定
+    func setupTextField() {
+        hideKeyboardWhenTappedAround()
     }
     
     @objc func tapNavigationEdit(_ sender : Any) {
