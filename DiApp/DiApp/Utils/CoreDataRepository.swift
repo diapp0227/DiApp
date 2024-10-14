@@ -18,7 +18,7 @@ class CoreDataRepository: NSObject {
     }
     
     /// 日付情報の追加
-    func addTimeCalcEntity(info: TimeCalcEntity) {
+    func saveTimeCalcEntity() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }

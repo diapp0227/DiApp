@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimeCalcInputViewController: UIViewController {
+class TimeCalcInputViewController: DiAppViewController {
 
     private let viewModel = TimeCalcInputViewModel()
     
@@ -18,6 +18,11 @@ class TimeCalcInputViewController: UIViewController {
         
         setupTableView()
         setupNavigationBar()
+        setupTextField()
+    }
+    
+    func setupInfo(entity: TimeCalcEntity?) {
+        viewModel.initialDisplayEntity(entity: entity)
     }
 }
 
@@ -25,8 +30,10 @@ private extension TimeCalcInputViewController {
     
     func setupTableView() {
         // Cellの登録
-        tableView.register(UINib(nibName: "TimeCalcInputCell", bundle: nil),
-                           forCellReuseIdentifier: "TimeCalcInputCell")
+        viewModel.sections.forEach {
+            tableView.register(UINib(nibName: $0.identifierName, bundle: nil),
+                               forCellReuseIdentifier: $0.identifierName)
+        }
         // dataSource・delegateを紐付け
         tableView.dataSource = self
         tableView.delegate = self
@@ -40,6 +47,11 @@ private extension TimeCalcInputViewController {
                                                             action: #selector(tapNavigationEdit))
     }
     
+    /// テキストフィールドの設定
+    func setupTextField() {
+        hideKeyboardWhenTappedAround()
+    }
+    
     @objc func tapNavigationEdit(_ sender : Any) {
         present(saveConfirmAlert, animated: true)
     }
@@ -51,7 +63,7 @@ private extension TimeCalcInputViewController {
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
-            self?.addTimeCalcEntity()
+            self?.saveTimeCalcEntity()
             self?.navigationController?.popViewController(animated: true)
             Logger.log("saveConfirmAlert Yes")
         })
@@ -62,50 +74,105 @@ private extension TimeCalcInputViewController {
         return alert
     }
     
-    /// 各Cellの設定
-    func setupInputCell(_ cell: UITableViewCell, section: TimeCalcInputViewModel.Section) {
-        guard let cell = cell as? TimeCalcInputCell else {
-            return
+    func setupCell(indexPath: IndexPath, cell: UITableViewCell) -> UITableViewCell {
+        switch viewModel.sections[indexPath.row] {
+        case .date,
+             .work,
+             .leaving:
+            return setupInputCell(cell, section: viewModel.sections[indexPath.row])
+        case .memo, .remarks:
+            return setupWritingCell(cell, section: viewModel.sections[indexPath.row])
+        default:
+            return UITableViewCell()
         }
-        cell.setContents(title: section.title, mode: section.pickerMode)
     }
-    
-}
-
-extension TimeCalcInputViewController: UITableViewDataSource {
-    
-    /// Sectionの個数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.sections.count
-    }
-    
-    /// 利用するCellの設定
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TimeCalcInputCell", for: indexPath)
-        setupInputCell(cell, section: viewModel.sections[indexPath.row])
+                
+    /// 各Cellの設定
+    func setupInputCell(_ cell: UITableViewCell, section: TimeCalcInputViewModel.Section) -> UITableViewCell {
+        guard let cell = cell as? TimeCalcInputCell else {
+            return cell
+        }
+        cell.setContents(title: section.title,
+                         mode: section.pickerMode,
+                         date: viewModel.getFirstDisplayEntityDate(section: section))
         return cell
     }
-}
-
-extension TimeCalcInputViewController: UITableViewDelegate { 
+    
+    /// 各Cellの設定
+    func setupWritingCell(_ cell: UITableViewCell, section: TimeCalcInputViewModel.Section) -> UITableViewCell {
+        guard let cell = cell as? WritingTableViewCell else {
+            return cell
+        }
+        cell.setup(title: viewModel.sections[section.rawValue].title)
+        return cell
+    }
+    
+    
+    func saveTimeCalcEntity() {
+        switch viewModel.inputType {
+        case .add:
+            addTimeCalcEntity()
+        case .edit:
+            updateTimeCalcEntity()
+        }
+    }
     
     func addTimeCalcEntity() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         let newEntity = TimeCalcEntity(context: appDelegate.persistentContainer.viewContext)
-        
+        processNewEntity(newEntity: newEntity)
+        CoreDataRepository.shared.saveTimeCalcEntity()
+    }
+    
+    func updateTimeCalcEntity() {
+        guard let _ = UIApplication.shared.delegate as? AppDelegate,
+              let beforeEntity = viewModel.editBeforeEntity else {
+            return
+        }
+        processNewEntity(newEntity: beforeEntity)
+        CoreDataRepository.shared.saveTimeCalcEntity()
+    }
+    
+    func processNewEntity(newEntity: TimeCalcEntity) {
         newEntity.date = getSectionInfo(type: .date) as? Date
         newEntity.work = getSectionInfo(type: .work) as? Date
         newEntity.leaving = getSectionInfo(type: .leaving) as? Date
-        
-        CoreDataRepository.shared.addTimeCalcEntity(info: newEntity)
+        newEntity.memo = getSectionInfo(type: .memo) as? String
+    }
+}
+
+extension TimeCalcInputViewController: UITableViewDataSource {
+    
+    /// 表示要素の個数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.sections.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        viewModel.sections[indexPath.row].cellForHeight
+    }
+    
+    /// 利用するCellの設定
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return setupCell(indexPath: indexPath,
+                         cell: tableView.dequeueReusableCell(withIdentifier: viewModel.sections[indexPath.row].identifierName,
+                                                             for: indexPath))
+    }
+}
+
+extension TimeCalcInputViewController: UITableViewDelegate { 
+        
     func getSectionInfo(type: TimeCalcInputViewModel.Section) -> Any? {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? TimeCalcInputCell else {
-            return nil
+        if let cell = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? TimeCalcInputCell {
+            return cell.datePicker.date
         }
-        return cell.datePicker.date
+        
+        if let cell = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? WritingTableViewCell {
+            return cell.textField.text
+        }
+        
+        return nil
     }
 }
