@@ -32,7 +32,7 @@ class TimeCalcInputViewModel: NSObject {
                  .leaving:
                 return "TimeCalcInputCell"
             case .infoType:
-                return "WritingTableViewCell"
+                return "InfoTypeTableViewCell"
             case .memo,
                  .remarks:
                 return "WritingTableViewCell"
@@ -47,7 +47,7 @@ class TimeCalcInputViewModel: NSObject {
                  .leaving:
                 return 60
             case .infoType:
-                return 100
+                return 120
             case .memo,
                  .remarks:
                 return 100
@@ -64,7 +64,7 @@ class TimeCalcInputViewModel: NSObject {
             case .leaving:
                 return "退社時間"
             case .infoType:
-                return ""
+                return "時間種別"
             case .memo:
                 return "メモ"
             case .remarks:
@@ -100,7 +100,12 @@ class TimeCalcInputViewModel: NSObject {
     private(set)var editBeforeEntity: TimeCalcEntity?
     /// 入力形式
     private(set)var inputType: InputType = .add
- 
+    /// 時間種別の一覧
+    var infoTypeList: [String] {
+        InfomationPropertyUtil.getInfoPlistList(key: .infoTypeList) as? [String] ?? []
+    }
+    /// 選択中の時間種別
+    var infoTypeSelectedNumber: Int64 = .zero
     
     override init() {
         super.init()
@@ -123,6 +128,7 @@ class TimeCalcInputViewModel: NSObject {
         }
         setEditBeforeEntity(entity: entity)
         inputType = .edit
+        infoTypeSelectedNumber = entity.infoType
     }
     
     private func setEditBeforeEntity(entity: TimeCalcEntity) {

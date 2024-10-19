@@ -27,4 +27,13 @@ class InfomationPropertyUtil {
     static func getInfoPlistValue(key: InfoPlistKeys) -> Any? {
         Bundle.main.object(forInfoDictionaryKey: key.rawValue)
     }
+    
+    enum InfoPlistListKeys: String {
+        /// 時間種別の定義名リスト
+        case infoTypeList = "TimeCalcInfoTypeList"
+    }
+    
+    static func getInfoPlistList(key: InfoPlistListKeys) -> [Any]? {
+        Bundle.main.object(forInfoDictionaryKey: key.rawValue) as? [Any]? ?? nil
+    }
 }

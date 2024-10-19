@@ -4,6 +4,14 @@
 <dict>
 	<key>BreakTime(Minute)</key>
 	<string>60</string>
+	<key>TimeCalcInfoTypeList</key>
+	<array>
+		<string>勤務</string>
+		<string>自社業務</string>
+		<string>全休</string>
+		<string>午前休</string>
+		<string>午後休</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
