@@ -132,6 +132,7 @@ private extension TimeCalcInputViewController {
         let newEntity = TimeCalcEntity(context: appDelegate.persistentContainer.viewContext)
         processNewEntity(newEntity: newEntity)
         CoreDataRepository.shared.saveTimeCalcEntity()
+        viewModel.setDefalutTimeValue(entity: newEntity)
     }
     
     func updateTimeCalcEntity() {
@@ -141,6 +142,7 @@ private extension TimeCalcInputViewController {
         }
         processNewEntity(newEntity: beforeEntity)
         CoreDataRepository.shared.saveTimeCalcEntity()
+        viewModel.setDefalutTimeValue(entity: beforeEntity)
     }
     
     func processNewEntity(newEntity: TimeCalcEntity) {
