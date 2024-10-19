@@ -31,28 +31,37 @@
                                 <cells/>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xOc-I8-sc1">
-                                <rect key="frame" x="0.0" y="315" width="393" height="184.33333333333337"/>
+                                <rect key="frame" x="0.0" y="315" width="393" height="503"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZo-vh-q0D">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="k69-0v-QYw"/>
+                                            <constraint firstAttribute="height" constant="50" id="Dek-vE-mx4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52Z-Fy-hqy">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="iXM-DJ-d1B"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFm-gj-hlD">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <rect key="frame" x="0.0" y="100" width="393" height="343"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="vPd-gg-JQE"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="vPd-gg-JQE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-6r-mDl">
-                                        <rect key="frame" x="0.0" y="150" width="393" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="443" width="393" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Fce-q6-Wfz"/>
                                         </constraints>
@@ -64,8 +73,10 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="52Z-Fy-hqy" firstAttribute="leading" secondItem="xOc-I8-sc1" secondAttribute="leading" id="B2t-a2-Y9c"/>
                                     <constraint firstItem="zcY-6r-mDl" firstAttribute="leading" secondItem="xOc-I8-sc1" secondAttribute="leading" id="Pvw-c8-Txq"/>
                                     <constraint firstAttribute="trailing" secondItem="zcY-6r-mDl" secondAttribute="trailing" id="TsD-ii-wu4"/>
+                                    <constraint firstAttribute="trailing" secondItem="52Z-Fy-hqy" secondAttribute="trailing" id="rnh-gG-7eW"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -84,6 +95,7 @@
                     <connections>
                         <outlet property="collectionView" destination="2ov-g9-9KW" id="rYY-cl-saU"/>
                         <outlet property="explanationLabel" destination="mFm-gj-hlD" id="37G-XK-o92"/>
+                        <outlet property="screenInfoTypeLabel" destination="52Z-Fy-hqy" id="jtO-I6-fWF"/>
                         <outlet property="titleLabel" destination="yZo-vh-q0D" id="8CY-79-CZl"/>
                     </connections>
                 </viewController>
