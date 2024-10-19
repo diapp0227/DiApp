@@ -82,8 +82,8 @@ private extension TimeCalcInputViewController {
             return setupInputCell(cell, section: viewModel.sections[indexPath.row])
         case .memo, .remarks:
             return setupWritingCell(cell, section: viewModel.sections[indexPath.row])
-        default:
-            return UITableViewCell()
+        case .infoType:
+            return setupInfoTypeCell(cell, section: viewModel.sections[indexPath.row])
         }
     }
                 
@@ -106,7 +106,15 @@ private extension TimeCalcInputViewController {
         cell.setup(title: viewModel.sections[section.rawValue].title)
         return cell
     }
-    
+
+    /// 各Cellの設定
+    func setupInfoTypeCell(_ cell: UITableViewCell, section: TimeCalcInputViewModel.Section) -> UITableViewCell {
+        guard let cell = cell as? InfoTypeTableViewCell else {
+            return cell
+        }
+        cell.setup(self, title: section.title, didSelectRow: Int(viewModel.infoTypeSelectedNumber))
+        return cell
+    }
     
     func saveTimeCalcEntity() {
         switch viewModel.inputType {
@@ -140,6 +148,7 @@ private extension TimeCalcInputViewController {
         newEntity.work = getSectionInfo(type: .work) as? Date
         newEntity.leaving = getSectionInfo(type: .leaving) as? Date
         newEntity.memo = getSectionInfo(type: .memo) as? String
+        newEntity.infoType = getSectionInfo(type: .infoType) as? Int64 ?? .zero
     }
 }
 
@@ -173,6 +182,32 @@ extension TimeCalcInputViewController: UITableViewDelegate {
             return cell.textField.text
         }
         
+        if let _ = tableView.cellForRow(at: IndexPath(row: type.rawValue, section: .zero)) as? InfoTypeTableViewCell {
+            return viewModel.infoTypeSelectedNumber
+        }
         return nil
     }
+}
+
+extension TimeCalcInputViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.infoTypeList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        viewModel.infoTypeSelectedNumber = Int64(row)
+    }
+}
+
+extension TimeCalcInputViewController: UIPickerViewDataSource {
+    /// 列数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    /// 行数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        viewModel.infoTypeList.count
+    }
+    
 }
