@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FirstLaunchViewController.swift
 //  DiApp
 //
 //  Created by garigari0118 on 2024/08/31.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FirstLaunchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         
 }
 
-private extension ViewController {
+private extension FirstLaunchViewController {
     
     func presentTimeCalcViewController() {
         guard let timeCalcViewController = TimeCalcViewController.initialNavigationController() else {
