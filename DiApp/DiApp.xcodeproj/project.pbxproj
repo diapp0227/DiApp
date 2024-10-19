@@ -147,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				B917B56E2CA44FE700193955 /* DateExtension.swift */,
-				B917B5792CA7D65400193955 /* DiAppViewController.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -188,6 +187,7 @@
 		B955AB1C2C82FE6D003F1383 /* DiApp */ = {
 			isa = PBXGroup;
 			children = (
+				B98659692CC3F49200C878DE /* Common */,
 				B917B58E2CC3D57800193955 /* FirstLaunch */,
 				B9FB3FDC2C837CA6005188CA /* TimeCalc */,
 				B917B5702CA7D0E600193955 /* Extentions */,
@@ -243,6 +243,14 @@
 				B955AB232C82FE6D003F1383 /* FirstLaunch.storyboard */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B98659692CC3F49200C878DE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B917B5792CA7D65400193955 /* DiAppViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		B9B483C32C831898004E9FE8 /* Utils */ = {
