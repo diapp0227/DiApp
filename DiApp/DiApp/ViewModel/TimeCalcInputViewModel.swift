@@ -107,6 +107,14 @@ class TimeCalcInputViewModel: NSObject {
     /// 選択中の時間種別
     var infoTypeSelectedNumber: Int64 = .zero
     
+    /// 出社時間の初期値
+    @UserDefault(key: "WorkTimeDefaultValue", defaultValue: nil)
+    var workTimeForDefaultValue: Date?
+
+    /// 退社時間の初期値
+    @UserDefault(key: "LeavingTimeDefaultValue", defaultValue: nil)
+    var leavingTimeForDefaultValue: Date?
+    
     override init() {
         super.init()
         
@@ -140,13 +148,18 @@ class TimeCalcInputViewModel: NSObject {
         case .date:
             return editBeforeEntity?.date
         case .work:
-            return editBeforeEntity?.work
+            return editBeforeEntity?.work ?? workTimeForDefaultValue
         case .leaving:
-            return editBeforeEntity?.leaving
+            return editBeforeEntity?.leaving ?? leavingTimeForDefaultValue
         case .infoType,
              .memo,
              .remarks:
             return nil
         }
+    }
+    
+    func setDefalutTimeValue(entity: TimeCalcEntity) {
+        workTimeForDefaultValue = entity.work
+        leavingTimeForDefaultValue = entity.leaving
     }
 }
