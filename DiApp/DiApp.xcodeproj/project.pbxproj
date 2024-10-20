@@ -35,6 +35,7 @@
 		B955AB3F2C82FE6E003F1383 /* DiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB3E2C82FE6E003F1383 /* DiAppUITests.swift */; };
 		B955AB412C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB402C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift */; };
 		B986596C2CC3F6F200C878DE /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B986596B2CC3F6F200C878DE /* WeatherView.swift */; };
+		B986596F2CC4041300C878DE /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B986596E2CC4041300C878DE /* WeatherViewModel.swift */; };
 		B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B483C42C831C7B004E9FE8 /* Logger.swift */; };
 		B9B483C92C8323A5004E9FE8 /* TimeCalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B483C82C8323A5004E9FE8 /* TimeCalcViewController.swift */; };
 		B9B483CB2C8324CE004E9FE8 /* TimeCalcViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B483CA2C8324CE004E9FE8 /* TimeCalcViewController.storyboard */; };
@@ -98,6 +99,7 @@
 		B955AB3E2C82FE6E003F1383 /* DiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiAppUITests.swift; sourceTree = "<group>"; };
 		B955AB402C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B986596B2CC3F6F200C878DE /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		B986596E2CC4041300C878DE /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		B9B483C42C831C7B004E9FE8 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B9B483C82C8323A5004E9FE8 /* TimeCalcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcViewController.swift; sourceTree = "<group>"; };
 		B9B483CA2C8324CE004E9FE8 /* TimeCalcViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeCalcViewController.storyboard; sourceTree = "<group>"; };
@@ -259,9 +261,18 @@
 		B986596A2CC3F63200C878DE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				B986596D2CC403FD00C878DE /* ViewModel */,
 				B986596B2CC3F6F200C878DE /* WeatherView.swift */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		B986596D2CC403FD00C878DE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B986596E2CC4041300C878DE /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B9B483C32C831898004E9FE8 /* Utils */ = {
@@ -472,6 +483,7 @@
 				B986596C2CC3F6F200C878DE /* WeatherView.swift in Sources */,
 				B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */,
 				B917B5832CBD8BD300193955 /* InfomationPropertyUtil.swift in Sources */,
+				B986596F2CC4041300C878DE /* WeatherViewModel.swift in Sources */,
 				B917B5922CC3D5E000193955 /* FirstLaunchCollectionViewCell.swift in Sources */,
 				B9FB3FE72C838CBA005188CA /* TimeCalcInputViewController.swift in Sources */,
 				B9FB3FEE2C8418F4005188CA /* TimeCalcInputViewModel.swift in Sources */,

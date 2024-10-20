@@ -9,16 +9,22 @@ import SwiftUI
 
 struct WeatherView: View {
     
-    @State var fetchInfo = ""
+    @State var infoText = ""
+    
+    let viewModel = WeatherViewModel()
     
     var body: some View {
         VStack {
             Text("天気情報")
             Button("取得する") {
-                fetchInfo = ""
+                fetchInfo()
             }
-            Text("\(fetchInfo)")
+            Text("")
         }
+    }
+    
+    func fetchInfo() {
+        viewModel.fetchWeather() { }
     }
 }
 
