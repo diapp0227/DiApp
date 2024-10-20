@@ -19,12 +19,14 @@ struct WeatherView: View {
             Button("取得する") {
                 fetchInfo()
             }
-            Text("")
+            Text("\(infoText)")
         }
     }
     
     func fetchInfo() {
-        viewModel.fetchWeather() { }
+        viewModel.fetchWeather() {
+            infoText = viewModel.getDisplayInfoText()
+        }
     }
 }
 

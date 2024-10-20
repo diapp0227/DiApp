@@ -9,6 +9,9 @@ import Foundation
 
 class WeatherViewModel {
     
+    /// お天気APIの結果
+    var response: WeatherResponse?
+    
     let requestUrl = "https://api.openweathermap.org/data/2.5/weather?zip=169-0072,JP&appid=cc587b0dbfc776dfef84e5e33ce87ee4&lang=jp"
     
     func fetchWeather(completion: (() -> Void)?) {
@@ -16,16 +19,26 @@ class WeatherViewModel {
             return
         }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data else {
+            guard let data = data?.decodeJson() as? WeatherResponse else {
+                self.response = nil
+                completion?()
                 return
             }
-            Logger.log("data \(String(describing: String(data: data, encoding: .utf8)))")
-            Logger.log("response \(String(describing: response))")
+            self.response = data
+            Logger.log("response \(String(describing: self.response))")
             completion?()
         }
-        
         task.resume()
     }
     
-    
+    func getDisplayInfoText() -> String {
+        guard let response else {
+            return "情報取得できませんでした。"
+        }
+        var infoText = ""
+        infoText.append("場所:" + (response.name ?? "不明"))
+        infoText.append("\n")
+        infoText.append("天気:" + (response.weather?.first?.main ?? "不明"))
+        return infoText
+    }
 }

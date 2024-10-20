@@ -36,6 +36,8 @@
 		B955AB412C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B955AB402C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift */; };
 		B986596C2CC3F6F200C878DE /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B986596B2CC3F6F200C878DE /* WeatherView.swift */; };
 		B986596F2CC4041300C878DE /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B986596E2CC4041300C878DE /* WeatherViewModel.swift */; };
+		B98659712CC4BB2400C878DE /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98659702CC4BB2400C878DE /* WeatherResponse.swift */; };
+		B98659732CC4BF5900C878DE /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98659722CC4BF5900C878DE /* DataExtension.swift */; };
 		B9B483C52C831C7B004E9FE8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B483C42C831C7B004E9FE8 /* Logger.swift */; };
 		B9B483C92C8323A5004E9FE8 /* TimeCalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B483C82C8323A5004E9FE8 /* TimeCalcViewController.swift */; };
 		B9B483CB2C8324CE004E9FE8 /* TimeCalcViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B483CA2C8324CE004E9FE8 /* TimeCalcViewController.storyboard */; };
@@ -100,6 +102,8 @@
 		B955AB402C82FE6E003F1383 /* DiAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B986596B2CC3F6F200C878DE /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		B986596E2CC4041300C878DE /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		B98659702CC4BB2400C878DE /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		B98659722CC4BF5900C878DE /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		B9B483C42C831C7B004E9FE8 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B9B483C82C8323A5004E9FE8 /* TimeCalcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalcViewController.swift; sourceTree = "<group>"; };
 		B9B483CA2C8324CE004E9FE8 /* TimeCalcViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeCalcViewController.storyboard; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		B917B5702CA7D0E600193955 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				B98659722CC4BF5900C878DE /* DataExtension.swift */,
 				B917B56E2CA44FE700193955 /* DateExtension.swift */,
 			);
 			path = Extentions;
@@ -197,6 +202,7 @@
 				B986596A2CC3F63200C878DE /* Weather */,
 				B917B5702CA7D0E600193955 /* Extentions */,
 				B9B483C32C831898004E9FE8 /* Utils */,
+				B98659742CC4D76A00C878DE /* Video */,
 				B955AB1D2C82FE6D003F1383 /* AppDelegate.swift */,
 				B955AB1F2C82FE6D003F1383 /* SceneDelegate.swift */,
 				B955AB262C82FE6D003F1383 /* Assets.xcassets */,
@@ -271,8 +277,16 @@
 			isa = PBXGroup;
 			children = (
 				B986596E2CC4041300C878DE /* WeatherViewModel.swift */,
+				B98659702CC4BB2400C878DE /* WeatherResponse.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B98659742CC4D76A00C878DE /* Video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		B9B483C32C831898004E9FE8 /* Utils */ = {
@@ -468,7 +482,9 @@
 				B917B56D2CA43F6000193955 /* TimeCalcViewModel.swift in Sources */,
 				B917B5812CB542E400193955 /* WritingTableViewCell.swift in Sources */,
 				B917B5882CBEB0D700193955 /* InfoTypeTableViewCell.swift in Sources */,
+				B98659712CC4BB2400C878DE /* WeatherResponse.swift in Sources */,
 				B955AB1E2C82FE6D003F1383 /* AppDelegate.swift in Sources */,
+				B98659732CC4BF5900C878DE /* DataExtension.swift in Sources */,
 				B917B58B2CC399DF00193955 /* UserDefault.swift in Sources */,
 				B9FB3FE22C837DAE005188CA /* TimeCalcAddElementsCell.swift in Sources */,
 				B955AB202C82FE6D003F1383 /* SceneDelegate.swift in Sources */,
