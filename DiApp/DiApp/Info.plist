@@ -4,6 +4,11 @@
 <dict>
 	<key>BreakTime(Minute)</key>
 	<string>60</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>TimeCalcInfoTypeList</key>
 	<array>
 		<string>勤務</string>

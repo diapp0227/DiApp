@@ -13,6 +13,7 @@ class FirstLaunchViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var screenInfoTypeLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
     
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ private extension FirstLaunchViewController {
         
         titleLabel.text = viewModel.destinationList[viewModel.selectedDestination].title
         explanationLabel.text = viewModel.destinationList[viewModel.selectedDestination].explanation
+        screenInfoTypeLabel.text = "【画面構成】\n\(viewModel.destinationList[viewModel.selectedDestination].screenType)"
     }
     
     func presentViewController() {

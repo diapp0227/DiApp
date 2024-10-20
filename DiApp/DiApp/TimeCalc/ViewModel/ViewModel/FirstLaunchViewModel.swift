@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class FirstLaunchViewModel {
     
@@ -26,6 +27,18 @@ class FirstLaunchViewModel {
                 return "お天気情報"
             case .webView:
                 return "webview学習用"
+            }
+        }
+        
+        /// 画面構成についての表示文言
+        var screenType: String {
+            switch self {
+            case .timeCalc:
+                return "StoryBoard"
+            case .weather:
+                return "SwiftUI"
+            case .webView:
+                return "---"
             }
         }
         
@@ -70,7 +83,7 @@ class FirstLaunchViewModel {
             case .timeCalc:
                 return TimeCalcViewController.initialNavigationController()
             case .weather:
-                return nil
+                return UIHostingController(rootView: WeatherView())
             case .webView:
                 return nil
             }
